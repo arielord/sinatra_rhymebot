@@ -7,3 +7,4 @@ end
 run ApplicationController
 use UserWordsController
 use UsersController
+use Rack::MethodOverride
