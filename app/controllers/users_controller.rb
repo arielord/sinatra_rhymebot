@@ -12,7 +12,17 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/users" do
-    redirect "/users"
+    @user = User.new
+    @user.email = params[:email]
+    @user.first_name = params[:first_name]
+    @user.last_name = params[:last_name]
+    @user.password = params[:password]
+
+    if @user.save
+      redirect '/login'
+    else
+      redirect "/signup"
+    end
   end
 
   # GET: /users/5

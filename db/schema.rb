@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190814004751) do
+ActiveRecord::Schema.define(version: 20191012101718) do
 
   create_table "user_words", force: :cascade do |t|
     t.integer  "user_id"

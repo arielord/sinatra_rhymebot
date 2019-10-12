@@ -10,12 +10,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    #@howmany = Word.all
     erb :welcome
   end
 
   helpers do
-    
+
   end
 
 end
