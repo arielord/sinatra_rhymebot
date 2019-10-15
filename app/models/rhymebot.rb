@@ -25,41 +25,16 @@ class Rhymebot
       counter
   end
 
-  def self.find_best_rhymes(word)
+  def self.find_best_rhymes(word1)
     best_rhymes = {}
-    word = Word.find_by(spelling: word.upcase)
 
-    rs = word.rhyming_syllable
-    w = word.spelling
-    syll = word.syllables
+    Word.where(rhyming_syllable: word1.rhyming_syllable).each do |word2|
+      matching_syllables = count_rhyming_syllables(word1, word2)
 
-    Word.where(rhyming_syllable: rs).each do |rhyme|
-      counter = 0
-
-      rhyme_rs = rhyme.rhyming_syllable
-      rhyme_word = rhyme.spelling
-      rhyme_syll = rhyme.syllables.split()
-
-      if syll.length <= rhyme_syll.length
-        less_syll = syll
-        more_syll = rhyme_syll
+      if best_rhymes[matching_syllables]
+        best_rhymes[matching_syllables] = best_rhymes[matching_syllables].push(word2.spelling)
       else
-        less_syll = rhyme_syll
-        more_syll = syll
-      end
-
-      for i in 1..less_syll.length
-        if less_syll[-i] == more_syll[-i]
-          counter = counter + 1
-        else
-          break
-        end
-      end
-      #add rhymes with its rhyme strength as denoted by the counter
-      if best_rhymes[counter]
-        best_rhymes[counter] = best_rhymes[counter].push(rhyme_word)
-      else
-        best_rhymes[counter] = [rhyme_word]
+        best_rhymes[matching_syllables] = [word2.spelling] if matching_syllables > 0
       end
     end
     #return hash of best rhymes
