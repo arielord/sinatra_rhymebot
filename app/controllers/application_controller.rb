@@ -27,4 +27,10 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  def user_not_logged_in
+    if !logged_in?
+      redirect "users/login"
+    end
+  end
+
 end
