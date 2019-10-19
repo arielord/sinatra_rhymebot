@@ -13,8 +13,12 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  helpers do
+  def logged_in?
+    !!session[:id]
+  end
 
+  def log_out
+    session.clear
   end
 
 end

@@ -2,6 +2,7 @@
 
 <form class="" action="/login" method="post">
   <% if @errors %> <div class="alert alert-danger" role="alert"><%= @errors %></div> <% end %>
+  
   <p><input type="text" name="email" id="email" value="" placeholder="Email Address"></p>
   <p><input type="password" name="password" id="password" value="" placeholder="Password"></p>
   <input class="btn btn-primary" type="submit" name="submit" value="Log In">
