@@ -1,6 +1,10 @@
 class UserWordsController < ApplicationController
 
   # GET: /user_words
+  # get "/" do
+  #   redirect "/user_words"
+  # end
+
   get "/user_words" do
     erb :"/user_words/index.html"
   end

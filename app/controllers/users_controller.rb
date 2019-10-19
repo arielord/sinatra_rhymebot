@@ -2,12 +2,24 @@ class UsersController < ApplicationController
 
   # GET: /users
   get "/users/login" do
-    #show all user_words
+    if logged_in?
+      redirect "/"
+    end
+    @current_page = "login"
     erb :"/users/login.html"
+  end
+
+  get "/users/signout" do
+    session.clear
+    redirect "/users/login"
   end
 
   # GET: /users/new
   get "/users/signup" do
+    if logged_in?
+      redirect "/"
+    end
+    @current_page = "signup"
     erb :"/users/signup.html"
   end
 
