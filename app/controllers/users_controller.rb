@@ -13,20 +13,34 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/login" do
-    
+    @errors = false
+    user = User.find_by(email: params[:email])
+
+    if user
+      if user.authenticate(params[:password])
+        session[:id] = user.id
+        redirect "/"
+      else
+        @errors = "Incorrect password."
+        erb :"/users/login.html"
+      end
+    else
+      @errors = "There are no accounts registered with this email."
+      erb :"/users/login.html"
+    end
   end
 
   post "/signup" do
-    @user = User.new
-    @user.email = params[:email]
-    @user.first_name = params[:first_name]
-    @user.last_name = params[:last_name]
-    @user.password = params[:password]
+    user = User.new
+    user.email = params[:email]
+    user.first_name = params[:first_name]
+    user.last_name = params[:last_name]
+    user.password = params[:password]
 
-    if @user.save
-      redirect '/login'
+    if user.save
+      redirect "/users/login"
     else
-      redirect "/users/new"
+      redirect "/users/signup"
     end
   end
 end
