@@ -21,4 +21,10 @@ class ApplicationController < Sinatra::Base
     session.clear
   end
 
+  def user_logged_in?
+    if logged_in?
+      redirect "/"
+    end
+  end
+
 end

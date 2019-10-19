@@ -2,9 +2,7 @@ class UsersController < ApplicationController
 
   # GET: /users
   get "/users/login" do
-    if logged_in?
-      redirect "/"
-    end
+    user_logged_in?
     @current_page = "login"
     erb :"/users/login.html"
   end
@@ -16,9 +14,7 @@ class UsersController < ApplicationController
 
   # GET: /users/new
   get "/users/signup" do
-    if logged_in?
-      redirect "/"
-    end
+    user_logged_in?
     @current_page = "signup"
     erb :"/users/signup.html"
   end
