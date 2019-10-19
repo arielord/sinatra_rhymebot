@@ -12,7 +12,11 @@ class UsersController < ApplicationController
   end
 
   # POST: /users
-  post "/users" do
+  post "/login" do
+    
+  end
+
+  post "/signup" do
     @user = User.new
     @user.email = params[:email]
     @user.first_name = params[:first_name]
