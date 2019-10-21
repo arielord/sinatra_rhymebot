@@ -1,4 +1,7 @@
-<h3>Previously Searched Words</h3>
+<h3>Hello <%= User.find(session[:id]).first_name.capitalize %>, Welcome to Rhymebot.</h3>
+<% if @user_words.size > 0 %>
+<p>Here are your previously searched words.</p>
+<% end %>
 
 <% @user_words.each do |user_word| %>
 <p>

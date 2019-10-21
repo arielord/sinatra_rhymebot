@@ -1,0 +1,9 @@
+<h1>Hello <%= @user.first_name %></h1>
+<p>You may change your personal information below</p>
+
+<form method="post" action="/users/<%= @user.id %>/edit">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <p>First Name:<input class="form-control" type="text" name="first_name" id="first_name" value="<%= @user.first_name %>" placeholder="First Name"></p>
+  <p>Last Name:<input class="form-control" type="text" name="last_name" id="last_name" value="<%= @user.last_name %>" placeholder="Last Name"></p>
+  <input class="btn btn-primary mx-auto d-block" type="submit" name="Submit">
+</form>

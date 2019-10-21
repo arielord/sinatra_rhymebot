@@ -19,6 +19,23 @@ class UsersController < ApplicationController
     erb :"/users/signup.html"
   end
 
+  get "/users/:id/edit" do
+    user_not_logged_in
+    @user = User.find(session[:id])
+    erb :"/users/edit.html"
+  end
+
+  patch '/users/:id/edit' do
+    user = User.find(session[:id])
+
+    user.first_name = params[:first_name]
+    user.last_name = params[:last_name]
+
+    user.save
+
+    redirect "/"
+  end
+
   # POST: /users
   post "/login" do
     @current_page = "login"
