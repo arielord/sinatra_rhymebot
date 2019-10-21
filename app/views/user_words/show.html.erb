@@ -1,1 +1,12 @@
 <h3>Results for <%= Word.find(params[:id]).spelling.capitalize %></h3>
+<p>
+  <% for i in (1..@keys).to_a.reverse %>
+    <% if @rhymes[i] %>
+      <% for word in @rhymes[i] %>
+        <ul>
+          <li><%= word.capitalize %></li>
+        </ul>
+      <% end %>
+    <% end %>
+  <% end %>
+</p>

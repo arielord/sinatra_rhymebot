@@ -52,11 +52,11 @@
 
     <% if logged_in? %>
     <div class="wrapper">
-        <form>
+        <form action="/user_words" method="post">
           <div class="form-group">
             <div class="input-group">
-              <input type="text" class="form-control" id="input" placeholder="Find Rhymes">
-              <input type="submit" class="btn btn-primary" name="" value="Search">
+              <input type="text" class="form-control" id="input" name="input" placeholder="Find Rhymes">
+              <input type="submit" class="btn btn-primary" name="search" value="Search">
             </div> 
           </div>
         </form>

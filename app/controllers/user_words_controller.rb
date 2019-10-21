@@ -21,12 +21,17 @@ class UserWordsController < ApplicationController
   # POST: /user_words
   post "/user_words" do
     user_not_logged_in
-    redirect "/user_words"
+    word = Word.find_by(spelling: params[:input].upcase)
+    UserWord.create(user_id: session[:id], word_id: word.id)
+    redirect "/user_words/#{word.id}"
   end
 
   # GET: /user_words/5
   get "/user_words/:id" do
     user_not_logged_in
+    word = Word.find(params[:id])
+    @keys = Rhymebot.phoneme_count(word)
+    @rhymes = Rhymebot.find_best_rhymes(word)
     erb :"/user_words/show.html"
   end
 
