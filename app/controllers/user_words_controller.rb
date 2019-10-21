@@ -22,8 +22,13 @@ class UserWordsController < ApplicationController
   post "/user_words" do
     user_not_logged_in
     word = Word.find_by(spelling: params[:input].upcase)
-    UserWord.create(user_id: session[:id], word_id: word.id)
-    redirect "/user_words/#{word.id}"
+
+    if word
+      UserWord.create(user_id: session[:id], word_id: word.id)
+      redirect "/user_words/#{word.id}"
+    else
+      erb :"/failure"
+    end
   end
 
   # GET: /user_words/5
