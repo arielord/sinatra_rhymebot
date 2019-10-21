@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   end
 
   post "/signup" do
+    @errors = false
     user = User.new
     user.email = params[:email]
     user.first_name = params[:first_name]
@@ -48,7 +49,8 @@ class UsersController < ApplicationController
     if user.save
       redirect "/users/login"
     else
-      redirect "/users/signup"
+      @errors = "Error. Email may have already been used to create account."
+      erb :"/users/signup.html"
     end
   end
 end
