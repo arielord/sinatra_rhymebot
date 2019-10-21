@@ -35,7 +35,8 @@ class UserWordsController < ApplicationController
   get "/user_words/:id" do
     user_not_logged_in
     word = Word.find(params[:id])
-    @keys = Rhymebot.phoneme_count(word)
+    @range_end = Rhymebot.phoneme_count(word)
+    @range_start = word.last_vowel_placement
     @rhymes = Rhymebot.find_best_rhymes(word)
     erb :"/user_words/show.html"
   end

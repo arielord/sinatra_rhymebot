@@ -1,6 +1,6 @@
 <h2 class="text-center">Results for <%= Word.find(params[:id]).spelling.capitalize %></h2>
 <p>
-  <% for i in (1..@keys).to_a.reverse %>
+  <% for i in (@range_start..@range_end).to_a.reverse %>
     <% if @rhymes[i] %>
       <% for word in @rhymes[i] %>
         <ul>
