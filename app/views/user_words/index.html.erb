@@ -1,1 +1,5 @@
-<h1>This is the Model's index page.</h1>
+<h3>Previously Searched Words</h3>
+
+<% @user_words.each do |user_word| %>
+<p><a href="/user_words/<%= user_word.word_id %>"><%= Word.find(user_word.word_id).spelling %></a></p>
+<% end %>

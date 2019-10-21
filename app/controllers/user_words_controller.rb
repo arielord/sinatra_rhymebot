@@ -3,7 +3,7 @@ class UserWordsController < ApplicationController
   # GET: /user_words
   get "/" do
     user_not_logged_in
-    redirect "/user_words/index"
+    redirect "/user_words"
   end
 
   get "/user_words" do
