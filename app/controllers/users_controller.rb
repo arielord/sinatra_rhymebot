@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/login" do
+    @current_page = "login"
     @errors = false
     user = User.find_by(email: params[:email])
 
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
   end
 
   post "/signup" do
+    @current_page = "signup"
     @errors = false
     user = User.new
     user.email = params[:email]
