@@ -1,4 +1,4 @@
-<h3>Hello <%= User.find(session[:id]).first_name.capitalize %>, Welcome to Rhymebot.</h3>
+<h3>Hello <%= User.find(session[:id]).first_name.capitalize %> <%= User.find(session[:id]).last_name.capitalize %>! Welcome to Rhymebot.</h3>
 <% if @user_words.size > 0 %>
 <p>Here are your previously searched words.</p>
 <% end %>
