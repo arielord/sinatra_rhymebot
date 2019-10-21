@@ -50,23 +50,31 @@
       </div>
     </nav>
 
+    <% if logged_in? %>
+    <div class="wrapper">
+        <form>
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" id="input" placeholder="Find Rhymes">
+              <input type="submit" class="btn btn-primary" name="" value="Search">
+            </div> 
+          </div>
+        </form>
+    </div>
+    <% end %>
+
     <div class="wrapper">
 
-      <!-- <form>
-        <div class="form-group">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" <span class="input-group-btn"><button type="submit" class="btn btn-primary">Submit</button></span>>
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-      </form> -->
-
-      <!-- <div class="container">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="button">Search</button>
-          </span>
-        </div>
-      </div> -->
+      <% if logged_in? %>
+        <!-- <form>
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" id="input" placeholder="Find Rhymes">
+              <input type="submit" class="btn btn-primary" name="" value="Search">
+            </div> 
+          </div>
+        </form> -->
+        <% end %>
 
         <%= yield %>
 
