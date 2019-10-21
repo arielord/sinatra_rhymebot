@@ -1,5 +1,15 @@
 <h3>Previously Searched Words</h3>
 
 <% @user_words.each do |user_word| %>
-<p><a href="/user_words/<%= user_word.word_id %>"><%= Word.find(user_word.word_id).spelling %></a></p>
+<p>
+  <div class="form-group">
+    <div class="input-group">
+        <form action="/user_words/<%=user_word.word_id%>/delete" method="post">
+          <input id="hidden" type="hidden" name="_method" value="DELETE">
+          <a href="/user_words/<%= user_word.word_id %>"><%= Word.find(user_word.word_id).spelling.capitalize %></a>
+          <input class="btn btn-outline-danger" type="submit" name="" value="remove">
+        </form>
+    </div>
+  </div>
+</p>
 <% end %>

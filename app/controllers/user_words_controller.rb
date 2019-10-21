@@ -13,10 +13,10 @@ class UserWordsController < ApplicationController
   end
 
   # GET: /user_words/new
-  get "/user_words/new" do
-    user_not_logged_in
-    erb :"/user_words/new.html"
-  end
+  # get "/user_words/new" do
+  #   user_not_logged_in
+  #   erb :"/user_words/new.html"
+  # end
 
   # POST: /user_words
   post "/user_words" do
@@ -48,8 +48,12 @@ class UserWordsController < ApplicationController
   end
 
   # DELETE: /user_words/5/delete
+
   delete "/user_words/:id/delete" do
     user_not_logged_in
+    user_word = UserWord.find_by(user_id: session[:id], word_id: params[:id])
+    user_word.delete
+    #UserWord.delete(user_word.id)
     redirect "/user_words"
   end
 end
