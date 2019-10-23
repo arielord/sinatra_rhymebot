@@ -24,7 +24,10 @@ class UserWordsController < ApplicationController
     word = Word.find_by(spelling: params[:input].upcase)
 
     if word
-      UserWord.create(user_id: session[:id], word_id: word.id)
+      user_word_exist = UserWord.find_by(user_id: session[:id], word_id: word.id)
+      if !user_word_exist
+        UserWord.create(user_id: session[:id], word_id: word.id)
+      end
       redirect "/user_words/#{word.id}"
     else
       erb :"/failure"
