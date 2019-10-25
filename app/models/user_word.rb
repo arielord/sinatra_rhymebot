@@ -1,4 +1,4 @@
 class UserWord < ActiveRecord::Base
-  belongs_to :words
-  belongs_to :users
+  belongs_to :word
+  belongs_to :user
 end

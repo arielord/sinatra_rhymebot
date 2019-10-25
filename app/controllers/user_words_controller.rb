@@ -8,7 +8,8 @@ class UserWordsController < ApplicationController
 
   get "/user_words" do
     user_not_logged_in
-    @user_words = UserWord.where(user_id: session[:id])
+    #@user_words = UserWord.where(user_id: session[:id])
+    @user_words = current_user.user_words
     erb :"/user_words/index.html"
   end
 
@@ -61,7 +62,9 @@ class UserWordsController < ApplicationController
   delete "/user_words/:id/delete" do
     user_not_logged_in
     user_word = UserWord.find_by(user_id: session[:id], word_id: params[:id])
-    user_word.delete
+    if user_word
+      user_word.delete
+    end
     #UserWord.delete(user_word.id)
     redirect "/user_words"
   end

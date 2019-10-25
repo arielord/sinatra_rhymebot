@@ -1,4 +1,4 @@
-<h3>Hello <%= User.find(session[:id]).first_name.capitalize %> <%= User.find(session[:id]).last_name.capitalize %>! Welcome to Rhymebot.</h3>
+<h3>Hello <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>! Welcome to Rhymebot.</h3>
 <% if @user_words.size > 0 %>
 <p>Here are your previously searched words.</p>
 <% end %>
@@ -9,7 +9,7 @@
     <div class="input-group">
         <form action="/user_words/<%=user_word.word_id%>/delete" method="post">
           <input id="hidden" type="hidden" name="_method" value="DELETE">
-          <a href="/user_words/<%= user_word.word_id %>"><%= Word.find(user_word.word_id).spelling.capitalize %></a>
+          <a href="/user_words/<%= user_word.word_id %>"><%= user_word.word.spelling.capitalize %></a>
           <input class="btn btn-outline-danger" type="submit" name="" value="remove">
         </form>
     </div>
