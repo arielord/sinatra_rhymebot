@@ -8,7 +8,6 @@ class UserWordsController < ApplicationController
 
   get "/user_words" do
     user_not_logged_in
-    #@user_words = UserWord.where(user_id: session[:id])
     @user_words = current_user.user_words
     erb :"/user_words/index.html"
   end
