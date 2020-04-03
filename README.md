@@ -1,4 +1,4 @@
-This project is not currently being hosted anywhere. If you would like to give it a try you can clone the directory. All you'll need to do is run the 'bundle install' command in the respective directory of the project. From there you should just be able to use the 'shotgun' command to run the server locally. you should be all set and will just need to process to your browser and follow the tcp/ip provided by shotgun gem.
+This project is not currently being hosted anywhere. If you would like to give it a try you can clone the directory. All you'll need to do is run the 'bundle install' command in the respective directory of the project. From there you should just be able to use the 'shotgun' command to run the server locally. you should be all set and will just need to proceed to your browser and follow the tcp/ip provided by shotgun gem.
 
 
 Copyright <2019> <Ariel Ordonez>
