@@ -21,5 +21,5 @@ group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
-  gem 'database_cleaner', git: 'https://github.com/DatabaseCleaner/database_cleaner'
+  # gem 'database_cleaner', git: 'https://github.com/DatabaseCleaner/database_cleaner'
 end
