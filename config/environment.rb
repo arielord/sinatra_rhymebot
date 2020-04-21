@@ -34,7 +34,7 @@ configure :production do
     :password => db.password,
     :database => db.path[1..-1],
     :encoding => 'utf8'
-  )
+    )
 end
 
 require_all 'app'
